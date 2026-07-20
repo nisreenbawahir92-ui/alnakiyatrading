@@ -48,7 +48,7 @@ export default async function Home() {
       <HeroCarousel />
 
       <section className="font-sans">
-        <h2 className="bg-white py-10 text-center text-3xl font-bold text-[#800517] sm:py-12 sm:text-5xl">
+        <h2 className="bg-white px-4 pb-6 pt-7 text-center text-3xl font-bold text-[#800517] sm:px-0 sm:py-12 sm:text-5xl">
           Our Categories
         </h2>
         <div className="flex flex-col">

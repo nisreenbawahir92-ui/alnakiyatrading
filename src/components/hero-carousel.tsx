@@ -43,9 +43,9 @@ export function HeroCarousel() {
         if (Math.abs(distance) > 45) show(active + (distance < 0 ? 1 : -1));
         touchStart.current = null;
       }}
-      className="hero-stage relative aspect-[4/3] w-full overflow-hidden bg-black sm:aspect-[16/7] lg:aspect-[16/6.2]"
+      className="hero-stage relative aspect-[16/9] w-full overflow-hidden bg-black sm:aspect-[16/7] lg:aspect-[16/6.2]"
     >
-      <div className="pointer-events-none absolute inset-0 z-[15] bg-gradient-to-t from-black/35 via-transparent to-black/10" />
+      <div className="pointer-events-none absolute inset-0 z-[15] bg-gradient-to-t from-black/45 via-transparent to-black/10" />
 
       {slides.map((slide, index) => {
         const isActive = active === index;
@@ -60,19 +60,17 @@ export function HeroCarousel() {
             }`}
           >
             {slide.type === "image" ? (
-              <div className="absolute inset-0 bg-[#f4f1e8] px-2 sm:px-3">
-                <Image
-                  src={slide.src}
-                  alt={slide.alt}
-                  fill
-                  priority={index === 0}
-                  unoptimized
-                  sizes="100vw"
-                  className={`object-contain object-center brightness-[1.04] saturate-[1.06] transition-transform duration-[6500ms] ease-out ${
-                    isActive ? "hero-kenburns scale-[1.04]" : "scale-[0.98]"
-                  }`}
-                />
-              </div>
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                fill
+                priority={index === 0}
+                unoptimized
+                sizes="100vw"
+                className={`object-cover object-center brightness-[1.04] saturate-[1.06] transition-transform duration-[6500ms] ease-out ${
+                  isActive ? "hero-kenburns scale-[1.04]" : "scale-100"
+                }`}
+              />
             ) : isActive ? (
               <video
                 key={slide.src}
@@ -82,7 +80,7 @@ export function HeroCarousel() {
                 playsInline
                 preload="metadata"
                 aria-label={slide.alt}
-                className="h-full w-full object-contain brightness-[1.08] saturate-[1.08] sm:object-cover"
+                className="h-full w-full object-cover object-center brightness-[1.08] saturate-[1.08]"
               >
                 <source src={slide.src} type="video/mp4" />
               </video>
@@ -91,13 +89,30 @@ export function HeroCarousel() {
         );
       })}
 
-      <div className="absolute bottom-6 left-4 z-20 max-w-md text-white sm:bottom-8 sm:left-8">
-        <p className="hero-eyebrow text-xs font-bold uppercase tracking-[0.22em] text-[#ffb128]">
-          Al Nakiya Trading
-        </p>
-        <p className="mt-2 text-lg font-bold drop-shadow sm:text-2xl">
-          {slides[active]?.alt}
-        </p>
+      <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/80 via-black/35 to-transparent px-3 pb-3 pt-10 sm:px-8 sm:pb-5 sm:pt-14">
+        <div className="pr-12 sm:pr-16">
+          <p className="hero-eyebrow text-[11px] font-bold uppercase tracking-[0.18em] text-[#ffb128] sm:text-xs sm:tracking-[0.22em]">
+            Al Nakiya Trading
+          </p>
+          <p className="mt-1 text-base font-bold leading-snug text-white drop-shadow sm:mt-1.5 sm:text-2xl">
+            {slides[active]?.alt}
+          </p>
+        </div>
+        <div className="mt-3 flex justify-center gap-2.5 sm:mt-4">
+          {slides.map((slide, index) => (
+            <button
+              key={slide.src}
+              type="button"
+              aria-label={`Show slide ${index + 1}`}
+              onClick={() => show(index)}
+              className={`h-2.5 rounded-full border border-white/80 transition-all ${
+                active === index
+                  ? "w-8 bg-white"
+                  : "w-2.5 bg-white/45 hover:bg-white/70"
+              }`}
+            />
+          ))}
+        </div>
       </div>
 
       <button
@@ -116,21 +131,6 @@ export function HeroCarousel() {
       >
         ›
       </button>
-      <div className="absolute bottom-5 left-0 right-0 z-20 flex justify-center gap-2.5">
-        {slides.map((slide, index) => (
-          <button
-            key={slide.src}
-            type="button"
-            aria-label={`Show slide ${index + 1}`}
-            onClick={() => show(index)}
-            className={`h-2.5 rounded-full border border-white/80 transition-all ${
-              active === index
-                ? "w-8 bg-white"
-                : "w-2.5 bg-white/45 hover:bg-white/70"
-            }`}
-          />
-        ))}
-      </div>
     </section>
   );
 }

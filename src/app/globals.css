@@ -172,11 +172,9 @@ a {
   0%,
   100% {
     opacity: 0.75;
-    letter-spacing: 0.22em;
   }
   50% {
     opacity: 1;
-    letter-spacing: 0.28em;
   }
 }
 
