@@ -215,10 +215,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
       {related.length > 0 && (
         <section className="bg-zinc-100">
-            <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16">
-            <h2 className="text-3xl font-black text-zinc-950">
-              Related Products
-            </h2>
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-[#800517] sm:text-4xl">
+                Related Products
+              </h2>
+            </div>
             <div className="mt-8 grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 md:grid-cols-4">
               {related.map((item) => (
                 <ProductCard key={`${item.source}-${item.id}`} product={item} />

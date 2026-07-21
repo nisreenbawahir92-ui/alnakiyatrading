@@ -179,21 +179,19 @@ export default async function Home() {
       </section>
 
       <section className="mx-auto max-w-[1400px] px-4 py-12 sm:px-6 sm:py-14">
-        <div className="flex flex-wrap items-end justify-between gap-5 border-b border-zinc-200 pb-5">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#800517]">
-              Featured
-            </p>
-            <h2 className="mt-1 text-2xl font-bold tracking-tight text-[#0B3954] sm:text-3xl">
-              Most sold this week
-            </h2>
-            <p className="mt-1 text-sm text-zinc-500">
-              Popular tools with next-day UAE delivery options.
-            </p>
-          </div>
+        <div className="border-b border-zinc-200 pb-5 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#800517]">
+            Featured
+          </p>
+          <h2 className="mt-1 text-2xl font-bold tracking-tight text-[#800517] sm:text-3xl">
+            Most sold this week
+          </h2>
+          <p className="mx-auto mt-2 max-w-2xl text-sm text-[#800517]/80">
+            Popular tools with next-day UAE delivery options.
+          </p>
           <Link
             href="/shop"
-            className="text-sm font-semibold text-[#0B3954] underline-offset-4 hover:text-[#800517] hover:underline"
+            className="mt-4 inline-block text-sm font-semibold text-[#800517] underline-offset-4 hover:underline"
           >
             View catalog
           </Link>
@@ -207,21 +205,19 @@ export default async function Home() {
 
       <section className="bg-[#f7f8f9]">
         <div className="mx-auto max-w-[1400px] px-4 py-12 sm:px-6 sm:py-14">
-          <div className="flex flex-wrap items-end justify-between gap-5 border-b border-zinc-200 pb-5">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#800517]">
-                Restocked
-              </p>
-              <h2 className="mt-1 text-2xl font-bold tracking-tight text-[#0B3954] sm:text-3xl">
-                Back in stock this week
-              </h2>
-              <p className="mt-1 text-sm text-zinc-500">
-                Fast-selling products available again.
-              </p>
-            </div>
+          <div className="border-b border-zinc-200 pb-5 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#800517]">
+              Restocked
+            </p>
+            <h2 className="mt-1 text-2xl font-bold tracking-tight text-[#800517] sm:text-3xl">
+              Back in stock this week
+            </h2>
+            <p className="mx-auto mt-2 max-w-2xl text-sm text-[#800517]/80">
+              Fast-selling products available again.
+            </p>
             <Link
               href="/shop"
-              className="text-sm font-semibold text-[#0B3954] underline-offset-4 hover:text-[#800517] hover:underline"
+              className="mt-4 inline-block text-sm font-semibold text-[#800517] underline-offset-4 hover:underline"
             >
               View all products
             </Link>
