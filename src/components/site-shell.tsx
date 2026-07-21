@@ -8,8 +8,7 @@ import { SiteHeader } from "@/components/site-header";
 
 export function SiteShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
-  const isAdminRoute =
-    pathname.startsWith("/dashboard") || pathname === "/login";
+  const isAdminRoute = pathname.startsWith("/dashboard");
 
   if (isAdminRoute) return children;
 
