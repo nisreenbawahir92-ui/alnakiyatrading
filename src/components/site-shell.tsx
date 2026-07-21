@@ -9,6 +9,8 @@ import { SiteHeader } from "@/components/site-header";
 export function SiteShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const isAdminRoute = pathname.startsWith("/dashboard");
+  const hideFloatingContact =
+    isAdminRoute || pathname === "/login";
 
   if (isAdminRoute) return children;
 
@@ -16,7 +18,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
     <>
       <SiteHeader />
       {children}
-      <FloatingContact />
+      {!hideFloatingContact && <FloatingContact />}
       <SiteFooter />
     </>
   );
