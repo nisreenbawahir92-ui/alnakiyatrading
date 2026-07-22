@@ -200,7 +200,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
           {html && (
             <div
-              className="product-content mt-8 leading-7 text-zinc-700"
+              className="product-content mt-8 w-full leading-7 text-zinc-700"
               dangerouslySetInnerHTML={{ __html: html }}
             />
           )}

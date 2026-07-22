@@ -29,11 +29,23 @@ a {
   transition-duration: 200ms;
 }
 
-.product-content table {
-  display: block;
+.product-content {
+  display: flex;
   width: 100%;
   max-width: 100%;
-  overflow-x: auto;
+  flex-direction: column;
+  align-items: center;
+  overflow-wrap: anywhere;
+}
+
+.product-content > :not(table) {
+  width: 100%;
+  align-self: stretch;
+}
+
+.product-content table {
+  width: auto;
+  max-width: 100%;
   border-collapse: collapse;
   margin-block: 1rem;
 }
@@ -41,17 +53,14 @@ a {
 .product-content td,
 .product-content th {
   border: 1px solid #d4d4d8;
-  padding: 0.75rem;
+  padding: 0.75rem 1rem;
+  text-align: center !important;
+  vertical-align: middle;
 }
 
 .product-content ul {
   list-style: disc;
   padding-left: 1.25rem;
-}
-
-.product-content {
-  max-width: 100%;
-  overflow-wrap: anywhere;
 }
 
 .product-content img,
