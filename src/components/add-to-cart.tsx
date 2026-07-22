@@ -29,11 +29,11 @@ export function AddToCart({ product, whatsappUrl }: AddToCartProps) {
   };
 
   return (
-    <div className="mt-7 border-t border-zinc-200 pt-6">
+    <div className="mt-7 w-full max-w-md border-t border-zinc-200 pt-6 text-center">
       <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">
         Quantity
       </p>
-      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+      <div className="mx-auto flex w-full max-w-md flex-col items-center gap-3">
         <div className="inline-flex h-11 items-center border border-zinc-300 bg-white">
           <button
             type="button"
@@ -58,7 +58,7 @@ export function AddToCart({ product, whatsappUrl }: AddToCartProps) {
         <button
           type="button"
           onClick={add}
-          className="h-11 bg-[#800517] px-6 text-sm font-bold text-white transition hover:bg-[#0B3954]"
+          className="h-11 w-full bg-[#800517] px-6 text-sm font-bold text-white transition hover:bg-[#0B3954]"
         >
           Add to Cart
         </button>
@@ -68,7 +68,7 @@ export function AddToCart({ product, whatsappUrl }: AddToCartProps) {
             addItem(product, quantity);
             router.push("/cart");
           }}
-          className="h-11 border border-[#0B3954] px-5 text-sm font-bold text-[#0B3954] transition hover:bg-[#0B3954] hover:text-white"
+          className="h-11 w-full border border-[#0B3954] px-5 text-sm font-bold text-[#0B3954] transition hover:bg-[#0B3954] hover:text-white"
         >
           Buy Now
         </button>
@@ -76,14 +76,14 @@ export function AddToCart({ product, whatsappUrl }: AddToCartProps) {
           href={whatsappUrl}
           target="_blank"
           rel="noreferrer"
-          className="flex h-11 items-center justify-center gap-2 border border-emerald-600 px-5 text-sm font-bold text-emerald-700 transition hover:bg-emerald-600 hover:text-white"
+          className="flex h-11 w-full items-center justify-center gap-2 border border-emerald-600 px-5 text-sm font-bold text-emerald-700 transition hover:bg-emerald-600 hover:text-white"
         >
           <ContactIcon name="whatsapp" className="h-5 w-5" />
           Order on WhatsApp
         </a>
       </div>
       {added && (
-        <div className="mt-4 flex flex-wrap items-center gap-3 border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+        <div className="mx-auto mt-4 flex max-w-md flex-wrap items-center justify-center gap-3 border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
           <span className="font-semibold">Added to cart.</span>
           <Link
             href="/cart"

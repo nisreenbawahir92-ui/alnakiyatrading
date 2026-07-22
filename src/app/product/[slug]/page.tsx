@@ -148,8 +148,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
           )}
         </div>
 
-        <div className="lg:py-5">
-          <div className="mb-4 flex flex-wrap gap-2">
+        <div className="flex w-full flex-col items-center text-center lg:py-5">
+          <div className="mb-4 flex flex-wrap justify-center gap-2">
             {product.categories.map((category) => (
               <Link
                 key={category.id}
@@ -166,7 +166,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <div className="mt-6 text-3xl font-black text-[#800517]">
             {product.price ? `د.إ${product.price}` : "Contact for price"}
           </div>
-          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-zinc-600">
+          <div className="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-zinc-600">
             {product.sku && <span>SKU: {product.sku}</span>}
             <span>
               Availability:{" "}
@@ -190,9 +190,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
             whatsappUrl={inquiryUrl}
           />
 
-          <div className="mt-7 border-y border-zinc-200 py-5">
+          <div className="mt-7 w-full max-w-md border-y border-zinc-200 py-5 text-center">
             <h2 className="font-semibold text-[#0B3954]">Shipping Info</h2>
-            <p className="mt-1 text-sm leading-6 text-[#5C676D]">
+            <p className="mt-2 text-sm leading-6 text-[#5C676D]">
               Order by 2PM to get delivered next working day. We use fast
               courier services in most cases so your order arrives on time.
             </p>
@@ -205,7 +205,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             />
           )}
 
-          <div className="mt-7 grid gap-2 border-t border-zinc-200 pt-5 text-sm text-[#5C676D]">
+          <div className="mt-7 grid w-full max-w-md gap-2 border-t border-zinc-200 pt-5 text-center text-sm text-[#5C676D]">
             <span>Free shipping on all qualifying orders</span>
             <span>Cash on delivery available</span>
             <span>Next day delivery within the UAE</span>
