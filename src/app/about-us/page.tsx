@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { StatsSection } from "@/components/stats-section";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
@@ -72,20 +73,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-zinc-100">
-        <div className="mx-auto grid max-w-7xl gap-6 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-3">
-          {[
-            ["488+", "Products available"],
-            ["39", "Specialized categories"],
-            ["UAE-wide", "Customer support"],
-          ].map(([number, label]) => (
-            <div key={label} className="rounded-2xl bg-white p-8 text-center">
-              <div className="text-4xl font-black text-[#800517]">{number}</div>
-              <div className="mt-2 text-zinc-600">{label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <StatsSection />
     </main>
   );
 }

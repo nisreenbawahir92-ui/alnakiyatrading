@@ -5,6 +5,12 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useCart } from "@/components/cart-provider";
 import { ContactIcon } from "@/components/contact-icon";
+import {
+  CALL_PHONE_DISPLAY,
+  CALL_PHONE_E164,
+  SITE_LOGO,
+  WHATSAPP_PHONE,
+} from "@/lib/seo";
 
 type HeaderCategory = {
   slug: string;
@@ -93,11 +99,11 @@ export function SiteHeader() {
               Fast UAE delivery
             </span>
             <a
-              href="tel:+971506859158"
+              href={`tel:${CALL_PHONE_E164}`}
               className="flex items-center gap-2 hover:text-[#ffb128]"
             >
               <ContactIcon name="phone" className="h-3.5 w-3.5" />
-              +971 50 685 9158
+              {CALL_PHONE_DISPLAY}
             </a>
             <a
               href="mailto:info@alnakiyatrading.com"
@@ -116,12 +122,12 @@ export function SiteHeader() {
           className="shrink-0"
         >
           <Image
-            src="/uploads/2025/08/WhatsApp_Image_2025-08-13_at_16.51.18-removebg-preview.png"
+            src={SITE_LOGO}
             alt="Al Nakiya Trading"
             width={76}
             height={76}
             priority
-            className="h-14 w-14 rounded-full border-2 border-white bg-white object-contain shadow-md lg:h-16 lg:w-16"
+            className="h-14 w-14 rounded-full object-cover shadow-md ring-2 ring-white/40 lg:h-16 lg:w-16"
           />
         </Link>
 
@@ -201,7 +207,7 @@ export function SiteHeader() {
 
         <form
           action="/shop"
-          className="group relative hidden h-12 min-w-0 flex-1 items-center rounded-full bg-white shadow-[0_5px_18px_rgba(0,0,0,0.16)] ring-2 ring-transparent transition focus-within:ring-[#ffb128] md:flex"
+          className="group relative flex h-10 min-w-0 flex-1 items-center rounded-full bg-white shadow-[0_5px_18px_rgba(0,0,0,0.16)] ring-2 ring-transparent transition focus-within:ring-[#ffb128] md:h-12"
         >
           <label className="sr-only" htmlFor="header-search">
             Search products
@@ -209,13 +215,13 @@ export function SiteHeader() {
           <input
             id="header-search"
             name="q"
-            placeholder="Search products, brands or SKU..."
-            className="h-12 w-full rounded-full border-0 bg-transparent pl-5 pr-14 text-sm text-zinc-800 outline-none placeholder:text-zinc-400"
+            placeholder="Search products..."
+            className="h-10 w-full rounded-full border-0 bg-transparent pl-4 pr-12 text-xs text-zinc-800 outline-none placeholder:text-zinc-400 md:h-12 md:pl-5 md:pr-14 md:text-sm"
           />
           <button
             type="submit"
             aria-label="Search"
-            className="absolute right-1 top-1 flex h-10 w-10 items-center justify-center rounded-full bg-[#ffb128] text-[#0B3954] shadow-sm transition group-focus-within:bg-[#800517] group-focus-within:text-white hover:scale-105 hover:bg-[#800517] hover:text-white"
+            className="absolute right-1 top-1 flex h-8 w-8 items-center justify-center rounded-full bg-[#ffb128] text-[#0B3954] shadow-sm transition group-focus-within:bg-[#800517] group-focus-within:text-white hover:scale-105 hover:bg-[#800517] hover:text-white md:h-10 md:w-10"
           >
             <svg
               viewBox="0 0 24 24"
@@ -231,17 +237,17 @@ export function SiteHeader() {
 
         <div className="hidden shrink-0 items-center gap-3 border-l border-white/20 pl-4 text-left leading-tight xl:flex">
           <span className="grid h-9 w-9 place-items-center rounded-full bg-white/10">
-            <ContactIcon name="phone" className="h-4 w-4 text-[#ffb128]" />
+            <ContactIcon name="phone" className="h-4 w-4" />
           </span>
           <div>
           <span className="block text-[10px] font-semibold uppercase tracking-wider text-red-100">
             Call our team
           </span>
           <a
-            href="tel:+971506859158"
+            href={`tel:${CALL_PHONE_E164}`}
             className="mt-1 block text-sm font-extrabold"
           >
-            +971 50 685 9158
+            {CALL_PHONE_DISPLAY}
           </a>
           </div>
         </div>
@@ -300,19 +306,6 @@ export function SiteHeader() {
 
       {open && (
         <nav className="border-t border-white/20 px-4 pb-4 lg:hidden">
-          <form
-            action="/shop"
-            className="relative my-4 flex rounded-full bg-white shadow-lg md:hidden"
-          >
-            <input
-              name="q"
-              placeholder="Search products"
-              className="h-12 min-w-0 flex-1 rounded-full bg-white pl-5 pr-24 text-zinc-900 outline-none"
-            />
-            <button className="absolute right-1 top-1 h-10 rounded-full bg-[#ffb128] px-4 text-sm font-bold text-[#0B3954]">
-              Search
-            </button>
-          </form>
           <div className="grid gap-1">
             <details
               className="border-b border-white/10"
@@ -362,17 +355,17 @@ export function SiteHeader() {
           </div>
           <div className="mt-4 grid grid-cols-2 gap-3">
             <a
-              href="tel:+971506859158"
-              className="flex items-center justify-center gap-2 rounded bg-white/10 px-3 py-3 text-center text-sm font-semibold"
+              href={`tel:${CALL_PHONE_E164}`}
+              className="flex items-center justify-center gap-2 rounded bg-white/10 px-3 py-3 text-center text-sm font-semibold text-white"
             >
               <ContactIcon name="phone" className="h-4 w-4" />
               Call Us
             </a>
             <a
-              href="https://wa.me/971506859158"
+              href={`https://wa.me/${WHATSAPP_PHONE}`}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center justify-center gap-2 rounded bg-[#25D366] px-3 py-3 text-center text-sm font-semibold"
+              className="flex items-center justify-center gap-2 rounded bg-white/10 px-3 py-3 text-center text-sm font-semibold text-white"
             >
               <ContactIcon name="whatsapp" className="h-4 w-4" />
               WhatsApp
@@ -383,7 +376,7 @@ export function SiteHeader() {
     </header>
     <div
       aria-hidden="true"
-      className="h-[72px] shrink-0 md:h-[104px] lg:h-[114px]"
+      className="h-[74px] shrink-0 md:h-[104px] lg:h-[114px]"
     />
     </>
   );

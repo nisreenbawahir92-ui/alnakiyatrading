@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/components/cart-provider";
+import { ContactIcon } from "@/components/contact-icon";
+import { WHATSAPP_PHONE } from "@/lib/seo";
 
 export default function CartPage() {
   const { items, total, updateQuantity, removeItem, clear } = useCart();
@@ -181,11 +183,12 @@ export default function CartPage() {
               </div>
               <div className="space-y-3 border-t border-zinc-200 px-5 py-5">
                 <a
-                  href={`https://wa.me/971506859158?text=${encodeURIComponent(whatsappMessage)}`}
+                  href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(whatsappMessage)}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex h-11 items-center justify-center bg-[#25D366] text-sm font-bold text-white transition hover:bg-[#1ebe57]"
+                  className="flex h-11 items-center justify-center gap-2 border border-[#800517]/20 bg-white text-sm font-bold text-[#800517] transition hover:bg-[#800517]/5"
                 >
+                  <ContactIcon name="whatsapp" className="h-5 w-5" />
                   Order on WhatsApp
                 </a>
                 <Link

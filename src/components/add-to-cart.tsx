@@ -76,7 +76,7 @@ export function AddToCart({ product, whatsappUrl }: AddToCartProps) {
           href={whatsappUrl}
           target="_blank"
           rel="noreferrer"
-          className="flex h-11 w-full items-center justify-center gap-2 border border-emerald-600 px-5 text-sm font-bold text-emerald-700 transition hover:bg-emerald-600 hover:text-white"
+          className="flex h-11 w-full items-center justify-center gap-2 border border-[#800517]/30 px-5 text-sm font-bold text-[#800517] transition hover:bg-[#800517]/5"
         >
           <ContactIcon name="whatsapp" className="h-5 w-5" />
           Order on WhatsApp

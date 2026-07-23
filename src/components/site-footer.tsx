@@ -1,6 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ContactIcon } from "@/components/contact-icon";
+import {
+  BUSINESS_ADDRESS,
+  CALL_PHONE_DISPLAY,
+  CALL_PHONE_E164,
+  FACEBOOK_URL,
+  GOOGLE_MAPS_URL,
+  INSTAGRAM_URL,
+  SITE_LOGO,
+  WHATSAPP_PHONE,
+} from "@/lib/seo";
 
 const quickLinks = [
   ["/", "Home"],
@@ -13,7 +23,7 @@ const quickLinks = [
 const categoryLinks = [
   ["/category/cutting-tools", "Cutting Tools"],
   ["/category/power-tool", "Power Tools"],
-  ["/category/electrical-accessories", "Electrical Accessories"],
+  ["/category/electrical-accessories", "Electrical Product"],
   ["/category/safety-products", "Safety Products"],
   ["/category/hardware-tool-accessories", "Hardware Accessories"],
 ];
@@ -31,11 +41,11 @@ function FooterLink({ href, label }: { href: string; label: string }) {
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto overflow-hidden bg-[#082f49] text-zinc-200">
-      <div className="bg-gradient-to-r from-[#800517] to-[#a70722]">
+    <footer className="mt-auto overflow-hidden bg-black text-zinc-200">
+      <div className="border-b border-white/10 bg-zinc-950">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-5 px-4 py-7 sm:px-6 md:flex-row md:items-center">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-red-100">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#ffb128]">
               Need help finding the right product?
             </p>
             <h2 className="mt-1 text-xl font-bold text-white sm:text-2xl">
@@ -44,17 +54,17 @@ export function SiteFooter() {
           </div>
           <div className="flex flex-wrap gap-3">
             <a
-              href="tel:+971506859158"
-              className="flex items-center gap-2 rounded-full border border-white/30 px-5 py-3 text-sm font-bold text-white hover:bg-white/10"
+              href={`tel:${CALL_PHONE_E164}`}
+              className="flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-3 text-sm font-bold text-white hover:border-[#800517] hover:bg-[#800517]"
             >
               <ContactIcon name="phone" className="h-4 w-4" />
-              Call +971 50 685 9158
+              Call {CALL_PHONE_DISPLAY}
             </a>
             <a
-              href="https://wa.me/971506859158"
+              href={`https://wa.me/${WHATSAPP_PHONE}`}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-bold text-white shadow-lg hover:bg-[#20bd5a]"
+              className="flex items-center gap-2 rounded-full border border-[#800517]/30 bg-white px-5 py-3 text-sm font-bold text-[#800517] hover:bg-[#800517]/5"
             >
               <ContactIcon name="whatsapp" className="h-4 w-4" />
               WhatsApp Us
@@ -63,19 +73,17 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="bg-gradient-to-br from-[#0B3954] to-[#06283d]">
+      <div className="bg-black">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-[1.25fr_0.8fr_1fr_1.15fr] lg:py-16">
           <div>
             <Link href="/" className="inline-flex items-center gap-4">
-              <span className="grid h-18 w-18 place-items-center rounded-full bg-white p-1 shadow-lg">
-                <Image
-                  src="/uploads/2025/08/WhatsApp_Image_2025-08-13_at_16.51.18-removebg-preview.png"
-                  alt="Al Nakiya Trading"
-                  width={68}
-                  height={68}
-                  className="h-16 w-16 object-contain"
-                />
-              </span>
+              <Image
+                src={SITE_LOGO}
+                alt="Al Nakiya Trading"
+                width={72}
+                height={72}
+                className="h-16 w-16 rounded-full object-cover shadow-lg ring-2 ring-[#800517]/60"
+              />
               <span>
                 <strong className="block text-lg text-white">
                   Al Nakiya Trading
@@ -89,19 +97,25 @@ export function SiteFooter() {
               Your trusted UAE partner for industrial tools, hardware,
               electrical accessories, plumbing supplies, and safety products.
             </p>
-            <div className="mt-6 flex gap-2">
-              {["f", "in", "ig"].map((label) => (
-                <a
-                  key={label}
-                  href="https://www.instagram.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Social media"
-                  className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-sm font-bold hover:border-[#ffb128] hover:bg-[#ffb128] hover:text-[#0B3954]"
-                >
-                  {label}
-                </a>
-              ))}
+            <div className="mt-6 flex gap-3">
+              <a
+                href={FACEBOOK_URL}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Al Nakiya Trading on Facebook"
+                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-white hover:border-[#ffb128] hover:bg-[#ffb128] hover:text-black"
+              >
+                <ContactIcon name="facebook" className="h-5 w-5" />
+              </a>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Al Nakiya Trading on Instagram"
+                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-white hover:border-[#ffb128] hover:bg-[#ffb128] hover:text-black"
+              >
+                <ContactIcon name="instagram" className="h-5 w-5" />
+              </a>
             </div>
           </div>
 
@@ -129,7 +143,7 @@ export function SiteFooter() {
             <h2 className="text-base font-bold text-white">Contact Details</h2>
             <div className="mt-4 grid gap-3 text-sm">
               <a
-                href="tel:+971506859158"
+                href={`tel:${CALL_PHONE_E164}`}
                 className="border-b border-white/15 py-3 hover:border-[#ffb128]/60"
               >
                 <span className="flex items-center gap-2 text-xs uppercase text-[#ffb128]">
@@ -137,7 +151,7 @@ export function SiteFooter() {
                   Phone
                 </span>
                 <strong className="mt-1 block text-white">
-                  +971 50 685 9158
+                  {CALL_PHONE_DISPLAY}
                 </strong>
               </a>
               <a
@@ -152,27 +166,33 @@ export function SiteFooter() {
                   info@alnakiyatrading.com
                 </strong>
               </a>
-              <div className="py-3">
+              <a
+                href={GOOGLE_MAPS_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="py-3 hover:text-[#ffb128]"
+              >
                 <span className="flex items-center gap-2 text-xs uppercase text-[#ffb128]">
                   <ContactIcon name="location" className="h-4 w-4" />
                   Location
                 </span>
                 <strong className="mt-1 block text-white">
-                  Sharjah, United Arab Emirates
+                  {BUSINESS_ADDRESS}
                 </strong>
-              </div>
+              </a>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-white/10 bg-[#06283d]">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 text-center text-xs text-zinc-400 sm:px-6 md:flex-row md:justify-between md:text-left">
+      <div className="border-t border-[#a70722] bg-[#800517]">
+        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 text-center text-xs text-white/90 sm:px-6 md:flex-row md:justify-between md:text-left">
           <span>
-            © {new Date().getFullYear()} Al Nakiya Trading LLC. All rights
-            reserved.
+            © 2000 Al Nakiya Trading LLC. All rights reserved.
           </span>
-          <span>Industrial tools and hardware supplier in the UAE</span>
+          <span className="text-white/80">
+            Industrial tools and hardware supplier in the UAE
+          </span>
         </div>
       </div>
     </footer>

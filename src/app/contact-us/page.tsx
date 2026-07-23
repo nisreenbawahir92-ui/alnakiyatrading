@@ -1,13 +1,21 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ContactIcon } from "@/components/contact-icon";
-import { createPageMetadata } from "@/lib/seo";
+import {
+  BUSINESS_ADDRESS,
+  CALL_PHONE_DISPLAY,
+  CALL_PHONE_E164,
+  createPageMetadata,
+  GOOGLE_MAPS_EMBED_URL,
+  GOOGLE_MAPS_URL,
+  WHATSAPP_PHONE,
+} from "@/lib/seo";
 import { submitContact } from "./actions";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Contact Us",
   description:
-    "Contact Al Nakiya Trading in Sharjah for product availability, bulk pricing, delivery and technical support. Call +971 50 685 9158 or WhatsApp us.",
+    "Contact Al Nakiya Trading in Ajman for product availability, bulk pricing, delivery and technical support. Call +971 55 341 2355 or WhatsApp us.",
   path: "/contact-us",
   image: "/uploads/2025/10/e1-1.jpg",
 });
@@ -59,7 +67,7 @@ export default async function ContactPage({
           </p>
           <div className="mt-8 border-y border-zinc-300">
             <a
-              href="tel:+971506859158"
+              href={`tel:${CALL_PHONE_E164}`}
               className="grid grid-cols-[36px_1fr] gap-3 border-b border-zinc-300 py-5"
             >
               <ContactIcon
@@ -71,7 +79,7 @@ export default async function ContactPage({
                   Phone
                 </div>
                 <div className="mt-1 text-lg font-bold text-[#0B3954]">
-                  +971 50 685 9158
+                  {CALL_PHONE_DISPLAY}
                 </div>
               </div>
             </a>
@@ -92,7 +100,12 @@ export default async function ContactPage({
                 </div>
               </div>
             </a>
-            <div className="grid grid-cols-[36px_1fr] gap-3 py-5">
+            <a
+              href={GOOGLE_MAPS_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="grid grid-cols-[36px_1fr] gap-3 py-5"
+            >
               <ContactIcon
                 name="location"
                 className="mt-1 h-5 w-5 text-[#800517]"
@@ -102,10 +115,10 @@ export default async function ContactPage({
                   Location
                 </div>
                 <div className="mt-1 text-lg font-bold text-[#0B3954]">
-                  Sharjah, United Arab Emirates
+                  {BUSINESS_ADDRESS}
                 </div>
               </div>
-            </div>
+            </a>
           </div>
           <div className="mt-6 grid gap-2 text-sm text-zinc-600">
             <p>
@@ -113,10 +126,10 @@ export default async function ContactPage({
               to Saturday, 8:00 AM to 7:00 PM
             </p>
             <a
-              href="https://wa.me/971506859158"
+              href={`https://wa.me/${WHATSAPP_PHONE}`}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 font-bold text-emerald-700"
+              className="inline-flex items-center gap-2 font-bold text-[#800517]"
             >
               <ContactIcon name="whatsapp" className="h-4 w-4" />
               Start a WhatsApp conversation
@@ -213,16 +226,22 @@ export default async function ContactPage({
           </p>
           <div className="mt-2 flex flex-wrap items-end justify-between gap-3">
             <h2 className="text-2xl font-bold text-[#0B3954] sm:text-3xl">
-              Visit Al Nakiya Trading in Sharjah
+              Visit Al Nakiya Trading in Ajman
             </h2>
-            <p className="text-sm text-zinc-500">
-              Sharjah, United Arab Emirates
-            </p>
+            <a
+              href={GOOGLE_MAPS_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm font-semibold text-[#800517] hover:underline"
+            >
+              Open in Google Maps
+            </a>
           </div>
+          <p className="mt-1 text-sm text-zinc-500">{BUSINESS_ADDRESS}</p>
           <div className="mt-6 overflow-hidden border border-zinc-300 bg-white">
             <iframe
               title="Al Nakiya Trading location"
-              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3604.691745980468!2d55.4834042753878!3d25.381645577592685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjXCsDIyJzUzLjkiTiA1NcKwMjknMDkuNSJF!5e0!3m2!1sen!2sin!4v1761917646732!5m2!1sen!2sin"
+              src={GOOGLE_MAPS_EMBED_URL}
               width="100%"
               height="420"
               loading="lazy"

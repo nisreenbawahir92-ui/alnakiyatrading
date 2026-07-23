@@ -1,8 +1,27 @@
 import type { Metadata } from "next";
 
 export const SITE_NAME = "Al Nakiya Trading";
+export const SITE_LOGO = "/uploads/2025/08/al-nakiya-logo.png";
 export const SITE_TAGLINE =
   "Industrial tools, hardware, electrical accessories and building materials supplier in the UAE.";
+
+export const GOOGLE_MAPS_URL =
+  "https://maps.app.goo.gl/AzKTLw2Wa7d1ncs2A";
+export const GOOGLE_MAPS_EMBED_URL =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3604.691745980468!2d55.4858883!3d25.3815558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f59007e404e91%3A0x38e2b9325a561a98!2sAl+Nakiya+Trading+l.l.c+-+Ajman+Industrial+1+-+Ajman!5e0!3m2!1sen!2sae!4v1721720000000!5m2!1sen!2sae";
+export const BUSINESS_ADDRESS =
+  "Ajman Industrial 1, Ajman, United Arab Emirates";
+export const BUSINESS_GEO = {
+  latitude: 25.3815558,
+  longitude: 55.4858883,
+} as const;
+
+export const CALL_PHONE_E164 = "+971553412355";
+export const CALL_PHONE_DISPLAY = "+971 55 341 2355";
+export const WHATSAPP_PHONE = "971506859158";
+export const INSTAGRAM_URL =
+  "https://www.instagram.com/alnakiyatradingllc?igsh=b3ZhaWY5cGJ0cGVp";
+export const FACEBOOK_URL = "https://www.facebook.com/share/1DWyt8GQKL/";
 
 export function getSiteUrl() {
   const raw =
@@ -91,13 +110,20 @@ export function organizationJsonLd() {
     image: absoluteUrl("/icons/og-icon.png"),
     description: SITE_TAGLINE,
     email: "info@alnakiyatrading.com",
-    telephone: "+971506859158",
+    telephone: CALL_PHONE_E164,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Sharjah",
+      streetAddress: "Ajman Industrial 1",
+      addressLocality: "Ajman",
       addressCountry: "AE",
     },
-    sameAs: ["https://www.instagram.com/", "https://wa.me/971506859158"],
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: BUSINESS_GEO.latitude,
+      longitude: BUSINESS_GEO.longitude,
+    },
+    hasMap: GOOGLE_MAPS_URL,
+    sameAs: [INSTAGRAM_URL, FACEBOOK_URL, `https://wa.me/${WHATSAPP_PHONE}`],
     areaServed: {
       "@type": "Country",
       name: "United Arab Emirates",
